@@ -57,7 +57,7 @@ const Login = ({getid}) => {
         type:"LOGIN",
         UserId : idd
       })
-      navigate("/GetApikey");
+      navigate("/MerchatDashboard");
 
     }
   }

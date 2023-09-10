@@ -353,3 +353,7 @@ a:hover {
   font-size: 18px;
   color: #333;
 }
+
+.keyflex .text {
+  font-size: 1.5rem;
+}
