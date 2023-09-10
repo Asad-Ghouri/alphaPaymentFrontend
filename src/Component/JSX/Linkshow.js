@@ -49,7 +49,7 @@ const Linkshow = () => {
 
   const handleButtonClick = async () => {
     try {
-      const response = await axios.get(`https://backendgate.vercel.app/api/changedetails/gett/${id}/${amd}/${address}/${amount}/${privateKey}`); // Replace with your API endpoint
+      const response = await axios.get(`https://alpha-payment-backend.vercel.app/api/changedetails/gett/${id}/${amd}/${address}/${amount}/${privateKey}`); // Replace with your API endpoint
       if(response.data){
         navigate("/PaymentLinkGenerator")
       }
