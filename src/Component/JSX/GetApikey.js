@@ -18,7 +18,7 @@ function GetApikey() {
            
   const generateApiKey = async () => {
     
-   const data = await fetch(`https://alpha-payment-backend.vercel.app/generateApiKey/${authToken}`, {
+   const data = await fetch(`https://backendgate.vercel.app/api/generateApiKey/${authToken}`, {
       method: 'POST',
       mode: 'no-cors',
       headers: {
@@ -49,7 +49,7 @@ function GetApikey() {
   useEffect(() => {
     async function fetchData() {
         try {
-          const response = await fetch(`https://alpha-payment-backend.vercel.app/getUserdata/${authToken}`); // Replace with your API URL
+          const response = await fetch(`https://backendgate.vercel.app/api/getUserdata/${authToken}`); // Replace with your API URL
           if (!response.ok) {
             throw new Error("Request failed");
           }

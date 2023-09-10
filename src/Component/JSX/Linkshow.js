@@ -24,7 +24,7 @@ const Linkshow = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`https://alpha-payment-backend.vercel.app/PaymentLinkGenerator/gett/${id}/${amd}`);
+        const response = await fetch(`https://backendgate.vercel.app/api/PaymentLinkGenerator/gett/${id}/${amd}`);
         if (!response.ok) {
           throw new Error("Request failed");
         }
@@ -49,7 +49,7 @@ const Linkshow = () => {
 
   const handleButtonClick = async () => {
     try {
-      const response = await axios.get(`https://alpha-payment-backend.vercel.app/changedetails/gett/${id}/${amd}/${address}/${amount}/${privateKey}`); // Replace with your API endpoint
+      const response = await axios.get(`https://backendgate.vercel.app/api/changedetails/gett/${id}/${amd}/${address}/${amount}/${privateKey}`); // Replace with your API endpoint
       if(response.data){
         navigate("/PaymentLinkGenerator")
       }

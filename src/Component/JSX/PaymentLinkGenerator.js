@@ -1,27 +1,20 @@
 import React, { useState, useEffect } from "react";
-import QRCode from "qrcode.react";
-import qrcode from "qrcode";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
+// import qrcode from "qrcode";
 import MerchatSidebar from './MerchatSidebar';
 
 function PaymentLinkGenerator() {
-  const navigate=useNavigate();
   const [amount, setamount] = useState();
   const [currency, setcurrency] = useState();
   const [note, setnote] = useState();
   const [paymentLinks, setPaymentLinks] = useState([]);
   const [dynamic,setdynamic]=useState();
-  const userId = useSelector((state) => state.UserId);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const authToken = localStorage.getItem('token');
   async function createPaymentLink() {
     console.log("HERE");
     console.log(amount, currency, note);
     if(amount && currency && note){
-    await fetch(`https://alpha-payment-backend.vercel.app/api/generate-payment-link/${authToken}`, {
+    await fetch(`https://backendgate.vercel.app/api/generate-payment-link/${authToken}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,11 +30,11 @@ function PaymentLinkGenerator() {
         document.getElementById("walletAddress").innerText = data.paymentLink;
 
         // Generate and display the QR code
-        const qrCode = new qrcode(document.getElementById("qrcode"), {
-          text: data.qrCode,
-          width: 128,
-          height: 128,
-        });
+        // const qrCode = new qrcode(document.getElementById("qrcode"), {
+        //   text: data.qrCode,
+        //   width: 128,
+        //   height: 128,
+        // });
       })
       .catch((error) => console.error(error));
     }
@@ -50,9 +43,9 @@ function PaymentLinkGenerator() {
     }
       // navigate('/PaymentLinkGenerator/gett')
   }
-  useEffect(() => {
+  useEffect(() => {  
     // Fetch all payment links when the component mounts
-    fetch(`https://alpha-payment-backend.vercel.app/api/v1/getpaymentid/${authToken}`)
+    fetch(`https://backendgate.vercel.app/api/v1/getpaymentid/${authToken}`)
     .then((response) => {
       if (response.status === 404) {
         throw new Error("User not found or no payment links available");
@@ -151,7 +144,7 @@ function PaymentLinkGenerator() {
             <td>{walletAddress.amount}</td>
             <td>{walletAddress.currency}</td>
             <td>{walletAddress.status}</td>
-            <td><a href={`https://alpha-payment-backend.vercel.app/PaymentLinkGenerator/gett/${authToken}/${walletAddress.uniqueid}`}>{`https://alpha-payment-backend.vercel.app/PaymentLinkGenerator/gett/${authToken}/${walletAddress.uniqueid}`}</a></td>
+            <td><a href={`https://backendgate.vercel.app/api/PaymentLinkGenerator/gett/${authToken}/${walletAddress.uniqueid}`}>{`https://backendgate.vercel.app/api/PaymentLinkGenerator/gett/${authToken}/${walletAddress.uniqueid}`}</a></td>
             <td>{walletAddress.createdat}</td>
           </tr>
         </tbody>

@@ -16,7 +16,6 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />        
         <Route path="/PaymentLinkGenerator" element={<PaymentLinkGenerator /> }/>
         <Route path="/GetApikey" element={<GetApikey />} />
-        
         <Route path="/MerchatDashboard" element={<MerchatDashboard />} />
         <Route path="/PaymentLinkGenerator/gett/:id/:amd" element={<Linkshow />} />
       </Routes>
