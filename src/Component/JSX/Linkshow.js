@@ -24,7 +24,7 @@ const Linkshow = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`https://backendgate.vercel.app/api/PaymentLinkGenerator/gett/${id}/${amd}`);
+        const response = await fetch(`https://alpha-payment-backend.vercel.app/api/PaymentLinkGenerator/gett/${id}/${amd}`);
         if (!response.ok) {
           throw new Error("Request failed");
         }

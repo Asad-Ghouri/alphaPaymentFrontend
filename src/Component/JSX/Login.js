@@ -36,7 +36,7 @@ const Login = ({getid}) => {
   const Userlogin = async (e) => {
 
     e.preventDefault();
-    const res = await fetch('https://backendgate.vercel.app/api/login', {
+    const res = await fetch('https://alpha-payment-backend.vercel.app/api/login', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

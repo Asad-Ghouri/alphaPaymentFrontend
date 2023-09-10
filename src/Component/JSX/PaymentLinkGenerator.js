@@ -14,7 +14,7 @@ function PaymentLinkGenerator() {
     console.log("HERE");
     console.log(amount, currency, note);
     if(amount && currency && note){
-    await fetch(`https://backendgate.vercel.app/api/generate-payment-link/${authToken}`, {
+    await fetch(`https://alpha-payment-backend.vercel.app/api/generate-payment-link/${authToken}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ function PaymentLinkGenerator() {
   }
   useEffect(() => {  
     // Fetch all payment links when the component mounts
-    fetch(`https://backendgate.vercel.app/api/v1/getpaymentid/${authToken}`)
+    fetch(`https://alpha-payment-backend.vercel.app/api/v1/getpaymentid/${authToken}`)
     .then((response) => {
       if (response.status === 404) {
         throw new Error("User not found or no payment links available");
@@ -144,7 +144,7 @@ function PaymentLinkGenerator() {
             <td>{walletAddress.amount}</td>
             <td>{walletAddress.currency}</td>
             <td>{walletAddress.status}</td>
-            <td><a href={`https://backendgate.vercel.app/api/PaymentLinkGenerator/gett/${authToken}/${walletAddress.uniqueid}`}>{`https://backendgate.vercel.app/api/PaymentLinkGenerator/gett/${authToken}/${walletAddress.uniqueid}`}</a></td>
+            <td><a href={`https://alpha-payment-backend.vercel.app/api/PaymentLinkGenerator/gett/${authToken}/${walletAddress.uniqueid}`}>{`https://alpha-payment-backend.vercel.app/api/PaymentLinkGenerator/gett/${authToken}/${walletAddress.uniqueid}`}</a></td>
             <td>{walletAddress.createdat}</td>
           </tr>
         </tbody>

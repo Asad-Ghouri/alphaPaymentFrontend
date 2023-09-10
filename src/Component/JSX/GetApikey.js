@@ -18,7 +18,7 @@ function GetApikey() {
            
   const generateApiKey = async () => {
     
-   const data = await fetch(`https://backendgate.vercel.app/api/generateApiKey/${authToken}`, {
+   const data = await fetch(`https://alpha-payment-backend.vercel.app/api/generateApiKey/${authToken}`, {
       method: 'POST',
       mode: 'no-cors',
       headers: {
