@@ -33,7 +33,7 @@ const Signup = () => {
     e.preventDefault();
     const { Name, email, password } = user;
 
-    const res = await fetch('/Registration', {
+    const res = await fetch('https://alpha-payment-backend.vercel.app/Registration', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
