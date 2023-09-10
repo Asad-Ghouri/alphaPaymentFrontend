@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import qrcode from "qrcode";
 import MerchatSidebar from './MerchatSidebar';
+import { Link } from "react-router-dom";
 
 function PaymentLinkGenerator() {
   const [amount, setamount] = useState();
@@ -144,7 +145,7 @@ function PaymentLinkGenerator() {
             <td>{walletAddress.amount}</td>
             <td>{walletAddress.currency}</td>
             <td>{walletAddress.status}</td>
-            <td><a href={`https://alpha-payment-backend.vercel.app/api/PaymentLinkGenerator/gett/${authToken}/${walletAddress.uniqueid}`}>{`https://alpha-payment-backend.vercel.app/api/PaymentLinkGenerator/gett/${authToken}/${walletAddress.uniqueid}`}</a></td>
+            <td><Link to={`/PaymentLinkGenerator/gett/${authToken}/${walletAddress.uniqueid}`}>{`https://alpha-payment-frontend.vercel.app/${authToken}/${walletAddress.uniqueid}`}</Link></td>
             <td>{walletAddress.createdat}</td>
           </tr>
         </tbody>

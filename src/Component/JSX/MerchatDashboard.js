@@ -62,9 +62,9 @@ function MerchatDashboard() {
       <br />
       
       
-        <div class="ag-courses_box" onClick={Apikey}>
+        <div class="ag-courses_box" >
 
-                    <div class="ag-courses_item">
+                    <div class="ag-courses_item" onClick={Apikey}>
                         <div class="ag-courses-item_link">
                             <div class="ag-courses-item_bg"></div>
 
