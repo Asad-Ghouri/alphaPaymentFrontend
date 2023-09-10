@@ -47,18 +47,20 @@ const Linkshow = () => {
 
   // console.log("data address is",data[0].address)
 
-  const handleButtonClick = async () => {
-    try {
-      const response = await axios.get(`https://alpha-payment-backend.vercel.app/api/changedetails/gett/${id}/${amd}/${address}/${amount}/${privateKey}`); // Replace with your API endpoint
-      if(response.data){
-        navigate("/PaymentLinkGenerator")
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+  
 
   useEffect(() => {
+
+    const handleButtonClick = async () => {
+      try {
+        const response = await axios.get(`https://alpha-payment-backend.vercel.app/api/changedetails/gett/${id}/${amd}/${address}/${amount}/${privateKey}`); // Replace with your API endpoint
+        if(response.data){
+          navigate("/PaymentLinkGenerator")
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
     // Call handleButtonClick initially
     handleButtonClick();
 
@@ -71,7 +73,7 @@ const Linkshow = () => {
     // return () => {
     //   clearInterval(interval);
     // };
-  }, []);
+  }, [address, amd, amount, id, navigate, privateKey]);
 
   return (
   
@@ -90,8 +92,8 @@ const Linkshow = () => {
         <div>
         {payment.status === "Pending" ? (
   <div>
-    <h1>React Axios GET Request Example</h1>
-    <button onClick={handleButtonClick}>Approve Transaction</button>
+    <h1>Axios GET Request</h1>
+    {/* <button onClick={handleButtonClick}>Approve Transaction</button> */}
   </div>
 ) : (
   <div>
