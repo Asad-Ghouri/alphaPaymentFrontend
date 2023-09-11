@@ -354,6 +354,18 @@ a:hover {
   color: #333;
 }
 
-.keyflex .text {
-  font-size: 1.5rem;
+@media (max-width:600px){
+  .keyflex .text {
+    font-size: 1.5rem;
+  }
+  .payment-page {
+    /* display: flex; */
+    padding: 10px;
+    width: 95%;
+    margin-left: 0%;
+}
+.payment-address-value {
+  font-size: 12px;
+ 
+}
 }

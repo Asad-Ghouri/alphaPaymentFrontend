@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import QRCode from "qrcode.react";
 import { NavLink , useNavigate,useParams } from "react-router-dom";
+import done from "../../asserts/done.png"
 import axios from "axios"
 const Linkshow = () => {
   const navigate= useNavigate();
@@ -55,7 +56,7 @@ const Linkshow = () => {
       try {
         const response = await axios.get(`https://alpha-payment-backend.vercel.app/api/changedetails/gett/${id}/${amd}/${address}/${amount}/${privateKey}`); // Replace with your API endpoint
         if(response.data){
-          navigate("/PaymentLinkGenerator")
+          // navigate("/PaymentLinkGenerator")
         }
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -94,18 +95,20 @@ const Linkshow = () => {
   <div>
     <h1>Axios GET Request</h1>
     {/* <button onClick={handleButtonClick}>Approve Transaction</button> */}
+    <div>
+               <QRCode value={payment.address} />
+            </div>
   </div>
 ) : (
   <div>
     <p>Already Approved</p>
+    <img src={done} alt="" />
   </div>
 )}
 
     </div>
        
-        <div>
-               <QRCode value={payment.address} />
-            </div>
+        
       </div>
 
       <div className="payment-status">
