@@ -72,7 +72,7 @@ const Login = ({getid}) => {
     < div className='container'>
       <form className='Loginform' method='POST'>
         <div className='formlogo'>
-          <img src={logo} alt="Logo" />
+          <img src="https://alphapay.solutions/wp-content/uploads/2023/09/WhatsApp_Image_2023-09-12_at_11.49.52_AM-removebg-preview.png" alt="Logo" />
         </div>
         <div className='title'><h1>Sign in</h1></div>
         <div className='input-container1'>
