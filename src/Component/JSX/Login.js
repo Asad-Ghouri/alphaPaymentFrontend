@@ -8,6 +8,7 @@ import { useState , useEffect } from 'react'
 import { NavLink , useNavigate } from "react-router-dom";
 import { useSelector , useDispatch } from "react-redux"
 
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Login = ({getid}) => {
 
@@ -69,7 +70,9 @@ const Login = ({getid}) => {
     }
 }, []);
   return (
-    < div className='container'>
+    <>
+                <ArrowBackIcon className="icon" style={{ color: 'white' }} />
+                    < div className='container'>
       <form className='Loginform' method='POST'>
         <div className='formlogo'>
           <img src="https://alphapay.solutions/wp-content/uploads/2023/09/WhatsApp_Image_2023-09-12_at_11.49.52_AM-removebg-preview.png" alt="Logo" />
@@ -89,6 +92,7 @@ const Login = ({getid}) => {
       </div>
       </form>
     </div>
+    </>
 
   )
 }

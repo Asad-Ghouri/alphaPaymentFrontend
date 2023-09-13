@@ -355,6 +355,10 @@ a:hover {
 }
 
 @media (max-width:600px){
+  .popup-form{
+    left: 14rem;
+    top: 14rem;
+  }
   .keyflex .text {
     font-size: 1.5rem;
   }

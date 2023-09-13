@@ -4,12 +4,21 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import HistoryIcon from '@mui/icons-material/History';
 import CategoryIcon from '@mui/icons-material/Category';
+
+import Logout from '@mui/icons-material/Logout';
+
 import logo from '../Images/IMG_3028.JPG'
-import { NavLink } from "react-router-dom";
+import { NavLink , useNavigate} from "react-router-dom";
 
 
 function MerchatSidebar() {
 
+  const navigate= useNavigate();
+
+  function LogOut(){
+    localStorage.setItem('token', "");
+    navigate("/");
+  }
   return (
     <div className="App">
       <div className="sidebar_container">
@@ -19,7 +28,7 @@ function MerchatSidebar() {
           <div className="profile">
           <NavLink to='/'>
             <img className="Logo"
-              src={logo}
+              src="https://alphapay.solutions/wp-content/uploads/2023/09/WhatsApp_Image_2023-09-12_at_11.49.52_AM-removebg-preview.png"
               alt="profile_img"
             />
             </NavLink>
@@ -37,6 +46,11 @@ function MerchatSidebar() {
               <NavLink to='/PaymentLinkGenerator' className='nav-links'>
                 <InventoryIcon className="icon" style={{ color: 'white' }} /> <span> Payment Link </span>
               </NavLink>
+              
+              <button onClick={LogOut} className='nav-links nav-linkbtn'>
+                <Logout className="icon" style={{ color: 'white' }} /> <span> Log Out </span>
+              </button>
+
               <NavLink to='/DonationLink' className='nav-links'>
                 <HistoryIcon className="icon" style={{ color: 'white' }} /> <span>Donation Link</span>
               </NavLink>
