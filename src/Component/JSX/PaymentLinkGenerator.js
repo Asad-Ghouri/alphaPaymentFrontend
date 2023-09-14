@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 // import qrcode from "qrcode";
 import MerchatSidebar from './MerchatSidebar';
-import { Link } from "react-router-dom";
+import { Link ,useParams} from "react-router-dom";
 
 function PaymentLinkGenerator() {
+  const {id,amd}=useParams();
+
   const [amount, setamount] = useState();
   const [currency, setcurrency] = useState();
   const [note, setnote] = useState();
@@ -15,7 +17,7 @@ function PaymentLinkGenerator() {
     console.log("HERE");
     console.log(amount, currency, note);
     if(amount && currency && note){
-    await fetch(`https://alpha-payment-backend.vercel.app/api/generate-payment-link/${authToken}`, {
+    await fetch(`https://alpha-payment-backend.vercel.app/api/generate-payment-link/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +48,7 @@ function PaymentLinkGenerator() {
   }
   useEffect(() => {  
     // Fetch all payment links when the component mounts
-    fetch(`https://alpha-payment-backend.vercel.app/api/v1/getpaymentid/${authToken}`)
+    fetch(`https://alpha-payment-backend.vercel.app/api/v1/getpaymentid/${id}`)
     .then((response) => {
       if (response.status === 404) {
         throw new Error("User not found or no payment links available");
