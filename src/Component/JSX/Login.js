@@ -18,7 +18,7 @@ const Login = ({getid}) => {
   const [icon, setIcon] = useState(eyeOff);
   
   const dispatch = useDispatch();
-  const authToken = localStorage.getItem('token');
+  // const authToken = localStorage.getItem('token');
 
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
@@ -63,12 +63,12 @@ const Login = ({getid}) => {
     }
   }
   
-  useEffect(() => {
-    if(authToken)
-    {
-        navigate("/MerchatDashboard");
-    }
-}, []);
+//   useEffect(() => {
+//     if(authToken)
+//     {
+//         navigate("/MerchatDashboard");
+//     }
+// }, []);
   return (
     <>
                 <ArrowBackIcon className="icon" style={{ color: 'white' }} />
