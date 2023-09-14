@@ -17,7 +17,7 @@ function PaymentLinkGenerator() {
     console.log("HERE");
     console.log(amount, currency, note);
     if(amount && currency && note){
-    await fetch(`https://alpha-payment-backend.vercel.app/api/generate-payment-link/${id}`, {
+    await fetch(`https://alpha-payment-backend.vercel.app/api/generate-payment-link/${authToken}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,28 +46,33 @@ function PaymentLinkGenerator() {
     }
       // navigate('/PaymentLinkGenerator/gett')
   }
-  useEffect(() => {  
-    // Fetch all payment links when the component mounts
-    fetch(`https://alpha-payment-backend.vercel.app/api/v1/getpaymentid/${id}`)
-    .then((response) => {
-      if (response.status === 404) {
-        throw new Error("User not found or no payment links available");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      setPaymentLinks(data); // Store the payment links in state
-    })
-    .catch((error) => {
-      if (error.message === "User not found or no payment links available") {
-        console.log(error.message); // Handle the 404 error message here
-        // You can set an appropriate state or display an error message to the user
-      } else {
-        console.error(error); // Handle other errors
-      }
-    });
-  
-  },[dynamic]);
+  useEffect(() => {
+    
+    async function fetchdata(){
+      // Fetch all payment links when the component mounts
+       fetch(`https://alpha-payment-backend.vercel.app/api/v1/getpaymentid/${authToken}`)
+      .then((response) => {
+        if (response.status === 404) {
+          throw new Error("User not found or no payment links available");
+        }
+        return response.json(); // Parse the JSON response
+      })
+      .then((data) => {
+        console.log("data is ", data);
+        // const uniqueids = data.uniqueids;
+        setPaymentLinks(data); // Store the payment links in state
+      })
+      .catch((error) => {
+        if (error.message === "User not found or no payment links available") {
+          console.log(error.message); // Handle the 404 error message here
+          // You can set an appropriate state or display an error message to the user
+        } else {
+          console.error(error); // Handle other errors
+        }
+      });
+    }
+    fetchdata()
+  },[]);
   function isFormtrue(){
     setIsFormOpen(true)
   }
@@ -140,7 +145,7 @@ function PaymentLinkGenerator() {
             <th>Created at</th>
           </tr>
         </thead>
-        { paymentLinks.map((walletAddress, index) => (
+        { paymentLinks?.map((walletAddress, index) => (
         <tbody>
           <tr>
             <td>{walletAddress._id}</td>
