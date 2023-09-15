@@ -113,7 +113,7 @@ const Linkshow = () => {
         
       </div>
 
-      <div className="payment-status">
+      {/* <div className="payment-status">
         <h2 className="status-title">Payment Status</h2>
         <div className="status-list">
           <div className="status-item">
@@ -137,7 +137,7 @@ const Linkshow = () => {
             <p className="status-text">Sent to seller 🎉</p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
    ))}
    </>
