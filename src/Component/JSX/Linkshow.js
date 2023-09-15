@@ -29,6 +29,7 @@ const Linkshow = () => {
         if (!response.ok) {
           throw new Error("Request failed");
         }
+         console.log("use effect 1")
         const data = await response.json();
         console.log(data);
         setdata(data.paymentLinks);
@@ -74,6 +75,7 @@ const Linkshow = () => {
     // return () => {
     //   clearInterval(interval);
     // };
+    console.log("use effect 2")
   }, [address, amd, amount, id, navigate, privateKey]);
 
   return (
