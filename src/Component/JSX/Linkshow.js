@@ -87,7 +87,7 @@ const Linkshow = () => {
       <div className="payment-details">
         <h1 className="payment-title">Payment Details</h1>
         <div className="payment-amount">
-          <span className="payment-amount-value">0.0130628</span>
+          <span className="payment-amount-value">{payment.amount}</span>
           <span className="payment-currency">${payment.amount}</span>
         </div>
         <p className="payment-address">Send the funds to this address</p>
