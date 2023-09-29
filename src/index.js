@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import authReducer from './reducers/authReducer';
 //
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+// import { ThirdwebProvider } from "@thirdweb-dev/react";
 //
 const store = createStore(authReducer);
 
@@ -15,9 +15,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
   <React.StrictMode>
-    <ThirdwebProvider>
+    {/* <ThirdwebProvider> */}
     <App />
-  </ThirdwebProvider>
+  {/* </ThirdwebProvider> */}
   </React.StrictMode>
   </Provider>
     ,

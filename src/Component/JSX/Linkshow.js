@@ -7,17 +7,17 @@ import axios from "axios";
 import copy from "clipboard-copy";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
-import { ConnectWallet, useAddress, useSDK } from "@thirdweb-dev/react";
+// import { ConnectWallet, useAddress, useSDK } from "@thirdweb-dev/react";
 const Linkshow = () => {
   const navigate = useNavigate();
   const userId = useSelector((state) => state.UserId);
   const [data, setdata] = useState([]);
 
-  const addresss = useAddress();
+  // const addresss = useAddress();
 
   const [btcPrice, setBtcPrice] = useState(null);
 
-  const sdk = useSDK();
+  // const sdk = useSDK();
 
   const [help, setHelp] = useState(false);
 
@@ -148,23 +148,23 @@ const Linkshow = () => {
       });
   };
 
-  async function transferFunds() {
-    try {
-      const txResult = await sdk.wallet.transfer(address, amount);
-      // If the transfer is successful, return true
-      console.error("done" + txResult);
-      // setaddfunds("");
-      return true;
-    } catch (error) {
-      // If there's an error during the transfer, you can log it or handle it here
-      console.error("Error during transfer:", error);
-      alert("You have Insufficient balance");
-      // setaddfunds("");
-      // Return false to indicate that the transfer was not successful
-      // setisTransactionok(false);
-      return false;
-    }
-  }
+  // async function transferFunds() {
+  //   try {
+  //     const txResult = await sdk.wallet.transfer(address, amount);
+  //     // If the transfer is successful, return true
+  //     console.error("done" + txResult);
+  //     // setaddfunds("");
+  //     return true;
+  //   } catch (error) {
+  //     // If there's an error during the transfer, you can log it or handle it here
+  //     console.error("Error during transfer:", error);
+  //     alert("You have Insufficient balance");
+  //     // setaddfunds("");
+  //     // Return false to indicate that the transfer was not successful
+  //     // setisTransactionok(false);
+  //     return false;
+  //   }
+  // }
 
   return (
     <>
@@ -200,7 +200,7 @@ const Linkshow = () => {
                     <div>
                       <QRCode value={payment.address} />
                     </div>
-                    {!addresss ? (
+                    {/* {!addresss ? (
                       <ConnectWallet
                         text="Connect Your Wallet"
                         color="primary"
@@ -210,7 +210,7 @@ const Linkshow = () => {
                       <button onClick={transferFunds} id="add-fund-button" className="submit-button">
                         Add Funds
                       </button>
-                    )}
+                    )} */}
                   </div>
                 ) : (
                   <div>
